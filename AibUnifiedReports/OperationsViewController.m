@@ -108,20 +108,23 @@
     UIImage  *background = [UIImage imageNamed:@"operations.png"];
     [background drawInRect:CGRectMake(0, 0, 1275, 1650) blendMode:kCGBlendModeOverlay alpha:.99f ];
     
-    // set font, font size, stroke color and fill color for report text does NOT effect signature since it is a UIImge
-    UIFont *font = [UIFont systemFontOfSize:20];
-    [[UIColor blackColor]setStroke];
-    [[UIColor blackColor]setFill];
     
     //draw report title.
-    [reportTitle drawInRect:CGRectIntegral( CGRectMake(325, 30, 700, 300)) withFont:[UIFont systemFontOfSize:32]    ];
+    
+    NSMutableDictionary *dictionary = [[NSMutableDictionary alloc] initWithObjectsAndKeys: [UIFont systemFontOfSize:32], NSFontAttributeName,nil];
+    [[UIColor blackColor]setStroke];
+    [[UIColor blackColor]setFill];
+    [reportTitle drawInRect:CGRectIntegral( CGRectMake(325, 30, 700, 300)) withAttributes:dictionary];
+    
+    //change font szie for rest of report
+    [dictionary setObject:[UIFont systemFontOfSize:20] forKey:NSFontAttributeName];
     
     // Draw date and shift in upper left of report
     dateString = [@"Date: " stringByAppendingString :date];
-    [dateString     drawInRect:CGRectMake(100, 100, 400, 400)  withFont:font];
+    [dateString     drawInRect:CGRectMake(100, 100, 400, 400)  withAttributes:dictionary];
     
     shiftString = [@"Shift: " stringByAppendingString:@""];
-    [shiftString drawInRect:CGRectMake(100, 130, 400, 400)  withFont:font];
+    [shiftString drawInRect:CGRectMake(100, 130, 400, 400)  withAttributes:dictionary];
     
     // Draw first and second check time in upper right of report
     

@@ -26,8 +26,6 @@
 @synthesize reportTitle;
 
 
-
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     [[UITableView appearance] setBackgroundColor:[UIColor colorWithRed:0.247  green:0.451  blue:0.651 alpha:1]];
