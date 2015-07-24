@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>ReportTitles</key>
+	<array>
+		<string>Operations and Pre-Operrations Check Sheet</string>
+		<string>Operations and Pre-Operrations Check Sheet</string>
+		<string>Operations and Pre-Operrations Check Sheet</string>
+		<string>Operations and Pre-Operrations Check Sheet</string>
+	</array>
+	<key>adminEntries</key>
+	<array>
+		<string>Holidays</string>
+		<string>WorkDays</string>
+	</array>
+	<key>ReportType</key>
+	<array>
+		<string>operations</string>
+		<string>operations</string>
+		<string>operations</string>
+		<string>operations</string>
+	</array>
+	<key>ReportNames</key>
+	<array>
+		<string>BagRoomAm</string>
+		<string>BagRoomPm</string>
+		<string>PressRoomAm</string>
+		<string>PressRoomPm</string>
+	</array>
+	<key>responsible</key>
+	<array>
+		<string>Ava Huchtins</string>
+		<string>Fern Brittion</string>
+		<string>Ava Huchtins</string>
+		<string>Derwin </string>
+	</array>
+	<key>Reports</key>
+	<array>
+		<string>Bag Room First Shift</string>
+		<string>Bag Room Second Shift</string>
+		<string>Press Room First Shift</string>
+		<string>Press Room Second Shift</string>
+	</array>
+</dict>
+</plist>

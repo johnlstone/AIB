@@ -1,0 +1,13 @@
+PODS:
+  - PPSSignatureView (0.1.2)
+  - RDVCalendarView (1.0.7)
+
+DEPENDENCIES:
+  - PPSSignatureView
+  - RDVCalendarView
+
+SPEC CHECKSUMS:
+  PPSSignatureView: 746f1fc186dea15c248bc99cc64182f93af131b9
+  RDVCalendarView: f9702024bbbc235709748812cff6f5f48b147fbb
+
+COCOAPODS: 0.37.0
