@@ -67,7 +67,8 @@
     NSArray *dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *docsDir = [dirPaths objectAtIndex:0];
     NSString *filename = [NSString stringWithFormat:@"%@-%@",reportName,[date substringToIndex:10]];
-    NSString *directoryPath = [[NSString alloc]initWithString:[docsDir stringByAppendingPathComponent:filename]];    UIImage * image = [UIImage imageWithContentsOfFile:directoryPath];
+    NSString *directoryPath = [[NSString alloc]initWithString:[docsDir stringByAppendingPathComponent:filename]];
+    UIImage * image = [UIImage imageWithContentsOfFile:directoryPath];
     
     return image;
     
@@ -135,10 +136,11 @@
     UIImage * image = UIGraphicsGetImageFromCurrentImageContext();
     
     // generate file name
-    NSString * fileName = [NSString stringWithFormat:@"%@-%@",reportName,date];
+    NSString * fileName = [NSString stringWithFormat:@"%@-%@.png",reportName,date];
     NSLog(@"Generate Report with name: %@.png",fileName);
     //Wirte image to file system.
     [self writeReportWithFilename:image FileName:fileName];
+    [self postReportToCloud:fileName];
     
 }
 
@@ -153,6 +155,38 @@
     [data writeToFile:directoryPath atomically:YES];
     
 }
+- (void) postReportToCloud:(NSString *) file{
+    
+    
+    NSArray *dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    
+    NSString *docsDir = [dirPaths objectAtIndex:0];
+   
+    NSString *directoryPath = [[NSString alloc]initWithString:[docsDir stringByAppendingPathComponent:file]];
+    
+    NSURL *url = [[NSURL alloc]initFileURLWithPath:directoryPath];
+    
+    CKContainer *defaultContainer = [CKContainer containerWithIdentifier:@"iCloud.com.pbok.AibUnifiedReports"];
+   
+    CKDatabase *publicDatabase = [defaultContainer publicCloudDatabase];
+    
+    CKAsset *reportI = [[CKAsset alloc ] initWithFileURL:url];
+    
+    CKRecord *postRecord = [[CKRecord alloc] initWithRecordType:@"ReportImages" ];
+   postRecord[@"reportName"] = file;
+    //postRecord[@"reportImage"] = reportI;
+    [postRecord setObject:reportI forKey:@"reportImage"];
+    
+    // CKDatabase *publicDatabase = [[CKContainer defaultContainer] publicCloudDatabase];
+    [publicDatabase saveRecord:postRecord completionHandler:^(CKRecord *record, NSError *error) {
+        if(error) {
+            NSLog(@"%@", error);
+        } else {
+            NSLog(@"Saved successfully: %@",record);
+        }
+    }];
+}
+
 
 - (void) viewDidLoad {
     [super viewDidLoad];
