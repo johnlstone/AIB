@@ -21,6 +21,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *firstCheckTime;
 @property (weak, nonatomic) IBOutlet UILabel *secondCheckTime;
 @property (weak, nonatomic) IBOutlet UIButton *doneButton;
+@property (weak, nonatomic) IBOutlet UITextView *correctiveAction;
+@property (weak, nonatomic) IBOutlet UITextView *preventiveMeasure;
+
 @property NSString *reportTitleText;
 @property NSString *reportShift;
 @property (nonatomic) bool reportAvail;

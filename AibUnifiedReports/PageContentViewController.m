@@ -67,6 +67,9 @@
         [[self firstCheckTime]     setHidden:YES];
         [[self secondCheckHeading] setHidden:YES];
         [[self secondCheckTime]    setHidden:YES];
+        [[self correctiveAction]   setHidden:YES];
+        [[self preventiveMeasure]  setHidden:YES];
+        
         [[self doneButton]         setHidden:YES];
     
     }else{

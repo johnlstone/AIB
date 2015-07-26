@@ -247,6 +247,20 @@
                                     </segue>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EL1-5N-nFm">
+                                <rect key="frame" x="65" y="589" width="624" height="110"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="E0i-ta-lGt">
+                                <rect key="frame" x="64" y="734" width="625" height="96"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -255,11 +269,13 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
                     <connections>
                         <outlet property="backgroundImageView" destination="nsE-fI-xuf" id="Rzz-th-MoC"/>
+                        <outlet property="correctiveAction" destination="EL1-5N-nFm" id="cwc-HL-EPr"/>
                         <outlet property="dateHeading" destination="6HB-Nd-z2D" id="gZJ-3N-Pj7"/>
                         <outlet property="dateLabel" destination="nZn-vQ-zYb" id="R8Z-Mw-jQI"/>
                         <outlet property="doneButton" destination="yhX-Os-0p5" id="cUR-A1-hsh"/>
                         <outlet property="firstCheckHeading" destination="B0J-OL-SAe" id="QIz-ha-zDn"/>
                         <outlet property="firstCheckTime" destination="tGn-nu-9yq" id="6Nv-HP-rwQ"/>
+                        <outlet property="preventiveMeasure" destination="E0i-ta-lGt" id="I0b-8B-eE9"/>
                         <outlet property="reportHeading" destination="7U0-tR-fxm" id="jZQ-pR-y3O"/>
                         <outlet property="secondCheckHeading" destination="SZ9-mh-CRd" id="rag-qr-uYl"/>
                         <outlet property="secondCheckTime" destination="2VW-9m-Hxs" id="uuC-f5-ACh"/>

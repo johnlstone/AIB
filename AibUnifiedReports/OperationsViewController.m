@@ -147,8 +147,15 @@
     [firstCheck drawInRect:CGRectMake(1000, 100, 400, 400)  withAttributes:dictionary];
     [secondCheck drawInRect:CGRectMake(975, 130, 400, 400)  withAttributes:dictionary];
     
+    // draw corrective action text box
+    NSString * correctiveAction = pageController.correctiveAction.text;
+    [correctiveAction drawInRect:CGRectMake(120, 950, 950, 300) withAttributes:dictionary];
+    NSString * preventiveMeasure = pageController.preventiveMeasure.text;
+    [preventiveMeasure drawInRect:CGRectMake(120, 1220, 950, 300) withAttributes:dictionary];
+    
+    
     // Draw signature in bottom right
-    [signatureImage drawInRect:CGRectMake(750,1325, 350, 150) blendMode:kCGBlendModePlusDarker alpha:.99f ];
+    [signatureImage drawInRect:CGRectMake(750,1320, 350, 150) blendMode:kCGBlendModePlusDarker alpha:.99f ];
     
     // gererate report image
     UIImage * image = UIGraphicsGetImageFromCurrentImageContext();
