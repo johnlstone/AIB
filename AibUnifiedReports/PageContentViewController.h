@@ -21,9 +21,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *firstCheckTime;
 @property (weak, nonatomic) IBOutlet UILabel *secondCheckTime;
 @property (weak, nonatomic) IBOutlet UIButton *doneButton;
-
+@property NSString *reportTitleText;
 @property (nonatomic) bool reportAvail;
 @property NSUInteger pageIndex;
-@property NSString *titleText;
+@property NSString *dateText;
 @property UIImage *imageFile;
 @end

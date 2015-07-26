@@ -49,10 +49,10 @@
     self.firstCheckTime.text = [self timeLabelTextFromInt:defHour.integerValue ];
     NSString *defSecondHour = [defaults objectForKey:@"defualtSecondCheck"];
     self.secondCheckTime.text = [self timeLabelTextFromInt:defSecondHour.integerValue ];
-
+    self.reportHeading.text = self.reportTitleText;
     
     self.backgroundImageView.image = self.imageFile;
-    [[self dateLabel]   setText: [self.titleText substringToIndex:10 ]] ;
+    [[self dateLabel]   setText: [self.dateText substringToIndex:10 ]] ;
     
     if (self.reportAvail){
         

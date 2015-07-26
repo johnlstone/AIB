@@ -8,6 +8,8 @@
 
 #import "OperationsViewController.h"
 #import <AudioToolbox/AudioToolbox.h>
+#import "PageContentViewController.h"
+
 @import CloudKit;
 
 @interface OperationsViewController ()
@@ -124,7 +126,7 @@
     NSMutableDictionary *dictionary = [[NSMutableDictionary alloc] initWithObjectsAndKeys: [UIFont systemFontOfSize:32], NSFontAttributeName,nil];
     [[UIColor blackColor]setStroke];
     [[UIColor blackColor]setFill];
-    [reportTitle drawInRect:CGRectIntegral( CGRectMake(325, 30, 700, 300)) withAttributes:dictionary];
+    [reportTitle drawInRect:CGRectIntegral( CGRectMake(225, 30, 900, 300)) withAttributes:dictionary];
     
     //change font szie for rest of report
     [dictionary setObject:[UIFont systemFontOfSize:20] forKey:NSFontAttributeName];
@@ -301,7 +303,10 @@
         
     }
     
-    pageContentViewController.titleText = [self.workDates[index] description]  ;
+    
+    pageContentViewController.reportTitleText = self.reportTitle;
+    
+    pageContentViewController.dateText = [self.workDates[index] description]  ;
     pageContentViewController.pageIndex = index;
     
     return pageContentViewController;
