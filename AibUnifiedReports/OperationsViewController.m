@@ -78,6 +78,11 @@
 #pragma mark - Render and save report
 - (void) setCheckTime:(NSArray *)passedArray{
     
+    PageContentViewController * pageController = [[[[self childViewControllers] firstObject ]childViewControllers]firstObject];
+    
+    pageController.firstCheckTime.text = [passedArray firstObject];
+    pageController.secondCheckTime.text = [passedArray objectAtIndex:1];
+    
 }
 
 - (void) saveReport:(NSArray *)passedArray{
@@ -99,6 +104,7 @@
 
 - (void) generateReportForDay:(NSArray *)passedArray{
     
+    PageContentViewController * pageController = [[[[self childViewControllers] firstObject ]childViewControllers]firstObject];
     // parse passedArray;
     UIImage  *signatureImage = [passedArray objectAtIndex:0];
     NSString *date      = [[NSString stringWithFormat:@"%@",[passedArray objectAtIndex:1]] substringToIndex:10];
@@ -131,6 +137,11 @@
     [shiftString drawInRect:CGRectMake(100, 130, 400, 400)  withAttributes:dictionary];
     
     // Draw first and second check time in upper right of report
+    
+    NSString *firstCheck =  [NSString stringWithFormat:@" First Check: %@", pageController.firstCheckTime.text];
+    NSString *secondCheck = [NSString stringWithFormat:@"Second Check: %@", pageController.secondCheckTime.text];
+    [firstCheck drawInRect:CGRectMake(1000, 100, 400, 400)  withAttributes:dictionary];
+    [secondCheck drawInRect:CGRectMake(975, 130, 400, 400)  withAttributes:dictionary];
     
     // Draw signature in bottom right
     [signatureImage drawInRect:CGRectMake(750,1325, 350, 150) blendMode:kCGBlendModePlusDarker alpha:.99f ];

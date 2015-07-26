@@ -18,9 +18,38 @@
 @implementation PageContentViewController
 
 @synthesize reportAvail;
+-(NSString *) timeLabelTextFromInt:(NSInteger)tmpFirstCheck{
+    
+    NSString *timeString;
+    
+    if (tmpFirstCheck < 12){
+       timeString = [NSString stringWithFormat:@"%d AM",(int) tmpFirstCheck];
+    }else if (tmpFirstCheck == 12){
+        timeString = [NSString stringWithFormat:@"%d Noon",(int) tmpFirstCheck];
+    } else if(tmpFirstCheck ==24) {
+        tmpFirstCheck -= 12;
+        timeString = [NSString stringWithFormat:@"%d Midnight",(int) tmpFirstCheck];
+        
+    }else {
+        tmpFirstCheck -= 12;
+        timeString = [NSString stringWithFormat:@"%d PM",(int) tmpFirstCheck];
+    }
+    
+    
+    
+    return timeString;
+}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *defHour = [defaults objectForKey:@"defualtFirstCheck"];
+    self.firstCheckTime.text = [self timeLabelTextFromInt:defHour.integerValue ];
+    NSString *defSecondHour = [defaults objectForKey:@"defualtSecondCheck"];
+    self.secondCheckTime.text = [self timeLabelTextFromInt:defSecondHour.integerValue ];
+
     
     self.backgroundImageView.image = self.imageFile;
     [[self dateLabel]   setText: [self.titleText substringToIndex:10 ]] ;

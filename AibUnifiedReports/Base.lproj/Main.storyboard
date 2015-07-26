@@ -148,17 +148,6 @@
                                 <rect key="frame" x="606" y="463" width="51" height="31"/>
                                 <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </switch>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CxO-FD-4XJ">
-                                <rect key="frame" x="434" y="42" width="305" height="72"/>
-                                <state key="normal">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="IJs-6d-atH" kind="popoverPresentation" identifier="checkTimeSegue" popoverAnchorView="2VW-9m-Hxs" id="NHh-ID-fow">
-                                        <popoverArrowDirection key="popoverArrowDirection" up="YES"/>
-                                    </segue>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wkS-ID-ZPX">
                                 <rect key="frame" x="53" y="61" width="210" height="53"/>
                                 <state key="normal">
@@ -207,25 +196,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="8am" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tGn-nu-9yq">
-                                <rect key="frame" x="652" y="59" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="First Check Time:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tLB-Zy-EXK">
-                                <rect key="frame" x="480" y="59" width="164" height="21"/>
+                                <rect key="frame" x="664" y="61" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="8am" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2VW-9m-Hxs">
-                                <rect key="frame" x="652" y="83" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Second Check Time:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G1O-9h-Dr7">
-                                <rect key="frame" x="480" y="83" width="164" height="21"/>
+                                <rect key="frame" x="664" y="82" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -247,6 +224,29 @@
                                     </segue>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="First Check:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B0J-OL-SAe">
+                                <rect key="frame" x="532" y="61" width="123" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Second Check:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SZ9-mh-CRd">
+                                <rect key="frame" x="532" y="82" width="123" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CxO-FD-4XJ">
+                                <rect key="frame" x="436" y="42" width="305" height="72"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="IJs-6d-atH" kind="popoverPresentation" identifier="checkTimeSegue" popoverAnchorView="2VW-9m-Hxs" id="NHh-ID-fow">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES"/>
+                                    </segue>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -258,10 +258,10 @@
                         <outlet property="dateHeading" destination="6HB-Nd-z2D" id="gZJ-3N-Pj7"/>
                         <outlet property="dateLabel" destination="nZn-vQ-zYb" id="R8Z-Mw-jQI"/>
                         <outlet property="doneButton" destination="yhX-Os-0p5" id="cUR-A1-hsh"/>
-                        <outlet property="firstCheckHeading" destination="tLB-Zy-EXK" id="emX-6d-pvg"/>
+                        <outlet property="firstCheckHeading" destination="B0J-OL-SAe" id="QIz-ha-zDn"/>
                         <outlet property="firstCheckTime" destination="tGn-nu-9yq" id="6Nv-HP-rwQ"/>
                         <outlet property="reportHeading" destination="7U0-tR-fxm" id="jZQ-pR-y3O"/>
-                        <outlet property="secondCheckHeading" destination="G1O-9h-Dr7" id="rdT-v0-1W4"/>
+                        <outlet property="secondCheckHeading" destination="SZ9-mh-CRd" id="rag-qr-uYl"/>
                         <outlet property="secondCheckTime" destination="2VW-9m-Hxs" id="uuC-f5-ACh"/>
                         <outlet property="shiftHeading" destination="PHF-9q-YfX" id="LXJ-hX-sob"/>
                         <outlet property="shiftLabel" destination="mWa-yc-CH8" id="XxI-et-eWU"/>
@@ -312,7 +312,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HnZ-aP-Bvn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2654" y="398"/>
+            <point key="canvasLocation" x="2970" y="27"/>
         </scene>
         <!--Time View Controller-->
         <scene sceneID="iac-A7-HkC">
@@ -323,7 +323,7 @@
                         <viewControllerLayoutGuide type="bottom" id="KnR-GA-NBd"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Zie-vN-8lR">
-                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" wraps="YES" value="1" minimumValue="1" maximumValue="24" translatesAutoresizingMaskIntoConstraints="NO" id="Gzh-iX-euQ">
@@ -363,8 +363,8 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="firstCheckSpinner" destination="Gzh-iX-euQ" id="FOO-Zn-1SF"/>
                         <outlet property="firstCheckTime" destination="wwy-Uj-aqZ" id="s63-lQ-ugZ"/>
@@ -374,7 +374,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wS3-1G-Qf6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2422" y="-1120"/>
+            <point key="canvasLocation" x="2944" y="-760"/>
         </scene>
         <!--Example View Controller-->
         <scene sceneID="9dm-oX-5ZE">
@@ -385,17 +385,18 @@
                         <viewControllerLayoutGuide type="bottom" id="RnY-eY-WYK"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="t9e-sb-t7Z">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="320"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <nil key="simulatedStatusBarMetrics"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mqm-QU-bwf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2994" y="-863"/>
+            <point key="canvasLocation" x="2193" y="-1143"/>
         </scene>
         <!--Sync View Controller-->
         <scene sceneID="TKy-MA-uFM">
