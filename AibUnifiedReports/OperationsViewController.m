@@ -20,6 +20,8 @@
 
 @synthesize reportName;
 @synthesize reportTitle;
+@synthesize reportShift;
+
 
 - (NSMutableArray *) simplifyWorkDates {
     NSMutableArray *simpleWorkDates = [[NSMutableArray alloc]init] ;
@@ -135,7 +137,7 @@
     dateString = [@"Date: " stringByAppendingString :date];
     [dateString     drawInRect:CGRectMake(100, 100, 400, 400)  withAttributes:dictionary];
     
-    shiftString = [@"Shift: " stringByAppendingString:@""];
+    shiftString = [@"Shift: " stringByAppendingString:reportShift];
     [shiftString drawInRect:CGRectMake(100, 130, 400, 400)  withAttributes:dictionary];
     
     // Draw first and second check time in upper right of report
@@ -305,6 +307,7 @@
     
     
     pageContentViewController.reportTitleText = self.reportTitle;
+    pageContentViewController.reportShift = self.reportShift;
     
     pageContentViewController.dateText = [self.workDates[index] description]  ;
     pageContentViewController.pageIndex = index;

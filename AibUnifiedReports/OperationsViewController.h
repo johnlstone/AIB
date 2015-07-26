@@ -16,6 +16,7 @@
 @property (strong, nonatomic) NSArray  *pageImages;
 @property (strong,nonatomic ) NSString *reportName;
 @property (strong,nonatomic ) NSString *reportTitle;
+@property (strong,nonatomic ) NSString *reportShift;
 
 - (void) saveReport:(NSArray *)passedArray;
 - (void) setCheckTime:(NSArray *)passedArray;

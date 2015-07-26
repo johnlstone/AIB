@@ -15,11 +15,12 @@
 @property (nonatomic, strong) NSMutableArray *responsibleData;
 @property (nonatomic, strong) NSMutableArray *reportNames;
 @property (nonatomic, strong) NSMutableArray *reportTitles;
+@property (nonatomic, strong) NSMutableArray *reportShifts;
 
 @property (nonatomic, strong) NSMutableArray *adminEntries;
 @property (strong, nonatomic) NSArray *workDates;
 @property (strong,nonatomic) NSString *reportName;
-
+@property (nonatomic, strong) NSString *reportShift;
 @property (strong,nonatomic) NSString *reportTitle;
 
 @end

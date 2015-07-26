@@ -24,6 +24,9 @@
 @synthesize reportName;
 @synthesize reportTitles;
 @synthesize reportTitle;
+@synthesize reportShifts;
+@synthesize reportShift;
+
 
 
 - (void)viewDidLoad {
@@ -42,6 +45,8 @@
     reportType = [dict objectForKey:@"ReportType"];
     adminEntries = [ dict objectForKey:@"adminEntries"];
     reportTitles = [ dict objectForKey:@"ReportTitles"];
+    reportShifts = [ dict objectForKey:@"ReportShifts"];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -92,6 +97,7 @@
     if(indexPath.section == 0){
         reportName = [reportNames objectAtIndex:indexPath.row];
         reportTitle = [reportTitles objectAtIndex:indexPath.row];
+        reportShift = [reportShifts objectAtIndex:indexPath.row];
         
         [self performSegueWithIdentifier:[reportType objectAtIndex:indexPath.row] sender:self];
     }else{
@@ -129,8 +135,13 @@
     // Pass the selected object to the new view controller.
     
     OperationsViewController * myvc = segue.destinationViewController;
+    if ([myvc respondsToSelector:@selector(setReportShift:)]){
+        myvc.reportShift = reportShift;
+        
+    }
     if ([myvc respondsToSelector:@selector(setReportName:)]){
-    myvc.reportName = reportName;
+        myvc.reportName = reportName;
+        
     }
     if ([myvc respondsToSelector:@selector(setReportTitle:)]){
         myvc.reportTitle = reportTitle;

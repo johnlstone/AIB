@@ -22,6 +22,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *secondCheckTime;
 @property (weak, nonatomic) IBOutlet UIButton *doneButton;
 @property NSString *reportTitleText;
+@property NSString *reportShift;
 @property (nonatomic) bool reportAvail;
 @property NSUInteger pageIndex;
 @property NSString *dateText;

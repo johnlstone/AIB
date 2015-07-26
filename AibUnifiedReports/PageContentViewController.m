@@ -18,6 +18,7 @@
 @implementation PageContentViewController
 
 @synthesize reportAvail;
+
 -(NSString *) timeLabelTextFromInt:(NSInteger)tmpFirstCheck{
     
     NSString *timeString;
@@ -50,6 +51,7 @@
     NSString *defSecondHour = [defaults objectForKey:@"defualtSecondCheck"];
     self.secondCheckTime.text = [self timeLabelTextFromInt:defSecondHour.integerValue ];
     self.reportHeading.text = self.reportTitleText;
+    self.shiftLabel.text = self.reportShift;
     
     self.backgroundImageView.image = self.imageFile;
     [[self dateLabel]   setText: [self.dateText substringToIndex:10 ]] ;
