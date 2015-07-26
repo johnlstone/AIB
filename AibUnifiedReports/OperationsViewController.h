@@ -18,6 +18,7 @@
 @property (strong,nonatomic ) NSString *reportTitle;
 
 - (void) saveReport:(NSArray *)passedArray;
+- (void) setCheckTime:(NSArray *)passedArray;
 
 - (void) newDateSelected:(id )sentDate;
 

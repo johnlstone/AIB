@@ -17,6 +17,17 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSDictionary *appDefaults = [NSDictionary dictionaryWithObject:@"http://68.97.139.23:6869/" forKey:@"url_preference"];
+    [defaults registerDefaults:appDefaults];
+    
+    appDefaults = [NSDictionary dictionaryWithObject:@"6" forKey:@"defualtFirstCheck"];
+    [defaults registerDefaults:appDefaults];
+    appDefaults = [NSDictionary dictionaryWithObject:@"6" forKey:@"defualtSecondCheck"];
+    [defaults registerDefaults:appDefaults];
+    
+    [defaults synchronize];
+    
     return YES;
 }
 

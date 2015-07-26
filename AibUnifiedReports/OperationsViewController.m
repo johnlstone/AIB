@@ -76,6 +76,9 @@
 
 
 #pragma mark - Render and save report
+- (void) setCheckTime:(NSArray *)passedArray{
+    
+}
 
 - (void) saveReport:(NSArray *)passedArray{
     
