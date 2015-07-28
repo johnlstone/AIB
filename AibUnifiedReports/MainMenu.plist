@@ -4,7 +4,6 @@
 <dict>
 	<key>ReportShifts</key>
 	<array>
-		<string>Debug</string>
 		<string>1st</string>
 		<string>2nd</string>
 		<string>1st</string>
@@ -12,7 +11,6 @@
 	</array>
 	<key>ReportTitles</key>
 	<array>
-		<string>test Report</string>
 		<string>Bag Room Operations and Pre-Operrations Check Sheet</string>
 		<string>Bag Room Operations and Pre-Operrations Check Sheet</string>
 		<string>Press Room Operations and Pre-Operrations Check Sheet</string>
@@ -25,7 +23,6 @@
 	</array>
 	<key>ReportType</key>
 	<array>
-		<string>operations2</string>
 		<string>operations</string>
 		<string>operations</string>
 		<string>operations</string>
@@ -33,7 +30,6 @@
 	</array>
 	<key>ReportNames</key>
 	<array>
-		<string>testReport</string>
 		<string>BagRoomAm</string>
 		<string>BagRoomPm</string>
 		<string>PressRoomAm</string>
@@ -41,7 +37,6 @@
 	</array>
 	<key>responsible</key>
 	<array>
-		<string>john Stone</string>
 		<string>Ava Huchtins</string>
 		<string>Fern Brittion</string>
 		<string>Ava Huchtins</string>
@@ -49,7 +44,6 @@
 	</array>
 	<key>Reports</key>
 	<array>
-		<string>Test </string>
 		<string>Bag Room First Shift</string>
 		<string>Bag Room Second Shift</string>
 		<string>Press Room First Shift</string>
