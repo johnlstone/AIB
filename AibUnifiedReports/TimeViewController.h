@@ -13,5 +13,11 @@
 @property (weak, nonatomic) IBOutlet UIStepper *firstCheckSpinner;
 @property (weak, nonatomic) IBOutlet UITextField *secondCheckTime;
 @property (weak, nonatomic) IBOutlet UIStepper *secondCheckSpinner;
+@property (weak, nonatomic) IBOutlet UISwitch *defTime;
+@property   (weak,nonatomic) NSString * reportName;
+@property NSInteger firstCheckValue;
+@property NSInteger secondCheckValue;
+
+
 
 @end

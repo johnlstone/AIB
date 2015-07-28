@@ -10,14 +10,17 @@
 #import "RDVExampleViewController.h"
 #import "PPSSignatureView.h"
 #import "SIgnPadViewController.h"
+#import "preventiveMeasureViewController.h"
+#import "TimeViewController.h"
 
 @interface PageContentViewController ()
 
 @end
 
 @implementation PageContentViewController
-
+@synthesize preventiveMeasure;
 @synthesize reportAvail;
+
 
 -(NSString *) timeLabelTextFromInt:(NSInteger)tmpFirstCheck{
     
@@ -45,10 +48,23 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSString *defHour = [defaults objectForKey:@"defualtFirstCheck"];
+    
+    NSArray  *dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *docsDir = [dirPaths objectAtIndex:0];
+    NSString *filename = [NSString stringWithFormat:@"%@-Def-times",self.reportName ];
+    
+    NSString *directoryPath = [[NSString alloc]initWithString:[docsDir stringByAppendingPathComponent:filename]];
+    //NSData *data = UIImagePNGRepresentation(image);
+    //[passedArray writeToFile:directoryPath atomically:YES];
+    NSArray *passedArray = [NSArray arrayWithContentsOfFile:directoryPath   ];
+    self.fistCheckValue =[[passedArray objectAtIndex:0] integerValue];
+    self.secondCheckValue =[[passedArray objectAtIndex:1]integerValue];
+    
+    
+    
+    NSString *defHour = [passedArray objectAtIndex:0];
     self.firstCheckTime.text = [self timeLabelTextFromInt:defHour.integerValue ];
-    NSString *defSecondHour = [defaults objectForKey:@"defualtSecondCheck"];
+    NSString *defSecondHour = [passedArray objectAtIndex:1];
     self.secondCheckTime.text = [self timeLabelTextFromInt:defSecondHour.integerValue ];
     self.reportHeading.text = self.reportTitleText;
     self.shiftLabel.text = self.reportShift;
@@ -81,8 +97,17 @@
 }
 
 #pragma mark - Navigation
-
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    if ([segue.identifier isEqualToString:@"checkTimeSegue"]){
+        TimeViewController *myvc = [segue destinationViewController];
+        myvc.reportName = self.reportName;
+        myvc.firstCheckValue =self.fistCheckValue   ;
+        myvc.secondCheckValue = self.secondCheckValue ;
+        
+        
+        
+    }
     
     if ([segue.identifier isEqualToString:@"datePopover"]){
         
@@ -105,6 +130,40 @@
         [[self doneButton] setHidden:NO];
         
     }
+    if ([segue.identifier isEqualToString:@"showEditBox"]){
+        preventiveMeasureViewController *myvc = segue.destinationViewController;
+        myvc.reportName = self.reportName;
+        myvc.dateText   = self.dateLabel.text;
+        
+    }
 }
 
+- (BOOL) shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender{
+    if ([identifier isEqualToString:@"showEditBox"]){
+        // preventiveMeasureViewController *myvc = segue.destinationViewController;
+        if([sender isKindOfClass:[UISwitch class]]){
+            NSLog(@"%@",sender);
+            if ([sender isOn]){
+                return NO;
+            }else{
+                return YES;
+            }
+            
+        }
+        
+        NSLog(@"%@",sender);
+    }
+    
+    
+    return YES;
+}
+
+- (IBAction)showPreventiveMeasure:(id)sender {
+   // [preventiveMeasure becomeFirstResponder];
+}
+
+- (IBAction)show2:(id)sender {
+    
+    
+}
 @end

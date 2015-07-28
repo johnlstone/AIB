@@ -80,6 +80,22 @@
 
 
 #pragma mark - Render and save report
+- (void) setEditBoxes:(NSArray *)passedArray{
+    PageContentViewController *pageController = [[[[self childViewControllers] firstObject]childViewControllers]firstObject];
+    pageController.correctiveAction.text = [passedArray objectAtIndex:0];
+    pageController.preventiveMeasure.text = [passedArray objectAtIndex:1];
+    
+    NSArray  *dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *docsDir = [dirPaths objectAtIndex:0];
+    NSString *filename = [NSString stringWithFormat:@"text-%@-%@",self.reportName  ,pageController.dateLabel.text];
+    
+    NSString *directoryPath = [[NSString alloc]initWithString:[docsDir stringByAppendingPathComponent:filename]];
+    //NSData *data = UIImagePNGRepresentation(image);
+    [passedArray writeToFile:directoryPath atomically:YES];
+  
+    
+}
+
 - (void) setCheckTime:(NSArray *)passedArray{
     
     PageContentViewController * pageController = [[[[self childViewControllers] firstObject ]childViewControllers]firstObject];
@@ -180,6 +196,7 @@
     [data writeToFile:directoryPath atomically:YES];
     
 }
+
 - (void) postReportToCloud:(NSString *) file{
     
     
@@ -211,7 +228,6 @@
         }
     }];
 }
-
 
 - (void) viewDidLoad {
     [super viewDidLoad];
@@ -311,6 +327,7 @@
         pageContentViewController.imageFile = [UIImage imageNamed:self.pageImages[1]];
         
     }
+    pageContentViewController.reportName = self.reportName;
     
     
     pageContentViewController.reportTitleText = self.reportTitle;

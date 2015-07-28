@@ -108,9 +108,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="operations" translatesAutoresizingMaskIntoConstraints="NO" id="nsE-fI-xuf">
-                                <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
-                            </imageView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7Sl-dD-Yw8">
+                                <rect key="frame" x="-20" y="-20" width="808" height="1064"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="operations" translatesAutoresizingMaskIntoConstraints="NO" id="nsE-fI-xuf">
+                                        <rect key="frame" x="20" y="20" width="768" height="1024"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tbQ-ss-TNX">
+                                        <rect key="frame" x="356" y="542" width="42" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Q6t-ex-RVg">
+                                        <rect key="frame" x="84" y="606" width="627" height="109"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Fv-SY-c9o">
+                                        <rect key="frame" x="84" y="756" width="627" height="92"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                            </scrollView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nZn-vQ-zYb">
                                 <rect key="frame" x="117" y="64" width="137" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -123,6 +146,13 @@
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aLF-Zy-17Q">
                                 <rect key="frame" x="606" y="164" width="51" height="31"/>
                                 <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="show2:" destination="ABz-2L-ESC" eventType="valueChanged" id="OsJ-S7-1UU"/>
+                                    <action selector="showPreventiveMeasure:" destination="ABz-2L-ESC" eventType="valueChanged" id="D6U-V6-3p0"/>
+                                    <segue destination="PD7-4V-02B" kind="popoverPresentation" identifier="showEditBox" popoverAnchorView="aLF-Zy-17Q" id="Hju-me-f35">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
+                                </connections>
                             </switch>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wyy-W4-4yO">
                                 <rect key="frame" x="606" y="304" width="51" height="31"/>
@@ -247,20 +277,6 @@
                                     </segue>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EL1-5N-nFm">
-                                <rect key="frame" x="65" y="589" width="624" height="110"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="E0i-ta-lGt">
-                                <rect key="frame" x="64" y="734" width="625" height="96"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -269,13 +285,14 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
                     <connections>
                         <outlet property="backgroundImageView" destination="nsE-fI-xuf" id="Rzz-th-MoC"/>
-                        <outlet property="correctiveAction" destination="EL1-5N-nFm" id="cwc-HL-EPr"/>
+                        <outlet property="correctiveAction" destination="Q6t-ex-RVg" id="B6c-F4-4cl"/>
                         <outlet property="dateHeading" destination="6HB-Nd-z2D" id="gZJ-3N-Pj7"/>
                         <outlet property="dateLabel" destination="nZn-vQ-zYb" id="R8Z-Mw-jQI"/>
                         <outlet property="doneButton" destination="yhX-Os-0p5" id="cUR-A1-hsh"/>
+                        <outlet property="employ" destination="aLF-Zy-17Q" id="oyP-pS-aVj"/>
                         <outlet property="firstCheckHeading" destination="B0J-OL-SAe" id="QIz-ha-zDn"/>
                         <outlet property="firstCheckTime" destination="tGn-nu-9yq" id="6Nv-HP-rwQ"/>
-                        <outlet property="preventiveMeasure" destination="E0i-ta-lGt" id="I0b-8B-eE9"/>
+                        <outlet property="preventiveMeasure" destination="4Fv-SY-c9o" id="qzh-uQ-odn"/>
                         <outlet property="reportHeading" destination="7U0-tR-fxm" id="jZQ-pR-y3O"/>
                         <outlet property="secondCheckHeading" destination="SZ9-mh-CRd" id="rag-qr-uYl"/>
                         <outlet property="secondCheckTime" destination="2VW-9m-Hxs" id="uuC-f5-ACh"/>
@@ -287,6 +304,77 @@
                 <exit id="gMu-kM-Av8" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2303" y="-405"/>
+        </scene>
+        <!--Preventive Measure View Controller-->
+        <scene sceneID="6CA-vS-GO9">
+            <objects>
+                <viewController id="PD7-4V-02B" customClass="preventiveMeasureViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="mQl-NQ-h9W"/>
+                        <viewControllerLayoutGuide type="bottom" id="NyQ-d3-CxJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="foE-8o-BCT">
+                        <rect key="frame" x="0.0" y="0.0" width="650" height="350"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Preventive Measure" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="38N-JI-eh4">
+                                <rect key="frame" x="16" y="164" width="595" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qg5-tp-jbK">
+                                <rect key="frame" x="16" y="57" width="595" height="91"/>
+                                <color key="backgroundColor" red="0.2470588235" green="0.45098039220000002" blue="0.65098039220000004" alpha="1" colorSpace="calibratedRGB"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9OT-YY-FEu">
+                                <rect key="frame" x="16" y="193" width="595" height="108"/>
+                                <color key="backgroundColor" red="0.2470588235" green="0.45098039220000002" blue="0.65098039220000004" alpha="1" colorSpace="calibratedRGB"/>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VeU-Op-nIC">
+                                <rect key="frame" x="18" y="195" width="591" height="104"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rtp-j7-1aq">
+                                <rect key="frame" x="18" y="59" width="591" height="87"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Corrective Action" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hoc-Cd-3Ic">
+                                <rect key="frame" x="16" y="28" width="595" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ujx-Ag-0R9">
+                                <rect key="frame" x="560" y="309" width="46" height="30"/>
+                                <state key="normal" title="Done">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="dimiss:" destination="PD7-4V-02B" eventType="touchUpInside" id="OkF-PO-27J"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <value key="contentSizeForViewInPopover" type="size" width="950" height="350"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="650" height="350"/>
+                    <connections>
+                        <outlet property="caViewBox" destination="qg5-tp-jbK" id="fki-nO-Tae"/>
+                        <outlet property="correctiveAction" destination="Rtp-j7-1aq" id="nDo-ze-5wC"/>
+                        <outlet property="pmViewBox" destination="9OT-YY-FEu" id="imI-Nk-aEo"/>
+                        <outlet property="preventiveMeasure" destination="VeU-Op-nIC" id="s3A-wZ-IZ2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eie-dB-AJV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3234" y="-289"/>
         </scene>
         <!--Ign Pad View Controller-->
         <scene sceneID="sBd-xJ-9i9">
@@ -376,12 +464,22 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Set as defualt check time." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WDc-nl-U5m">
+                                <rect key="frame" x="19" y="154" width="160" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="mN1-zy-DbR">
+                                <rect key="frame" x="187" y="149" width="51" height="31"/>
+                            </switch>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
+                        <outlet property="defTime" destination="mN1-zy-DbR" id="yJb-RC-Rij"/>
                         <outlet property="firstCheckSpinner" destination="Gzh-iX-euQ" id="FOO-Zn-1SF"/>
                         <outlet property="firstCheckTime" destination="wwy-Uj-aqZ" id="s63-lQ-ugZ"/>
                         <outlet property="secondCheckSpinner" destination="X2g-Yv-N64" id="eO4-MX-3eC"/>
