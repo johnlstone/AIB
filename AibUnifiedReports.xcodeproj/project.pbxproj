@@ -26,6 +26,7 @@
 		8E7911AB1B4824B9005F5D6E /* RDVExampleDayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E7911A91B4824B9005F5D6E /* RDVExampleDayCell.m */; };
 		8E7911AE1B4896E4005F5D6E /* syncViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E7911AD1B4896E4005F5D6E /* syncViewController.m */; };
 		8E7911B41B48DEE6005F5D6E /* monthTabsTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E7911B31B48DEE6005F5D6E /* monthTabsTableView.m */; };
+		8EAFE5D41B6AA275000F2A65 /* checkBoxImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EAFE5D31B6AA275000F2A65 /* checkBoxImageView.m */; };
 		8EB915741B6411E0009151F7 /* TimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB915731B6411E0009151F7 /* TimeViewController.m */; };
 		8EDE75951B669BB900D817F1 /* preventiveMeasureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EDE75941B669BB900D817F1 /* preventiveMeasureViewController.m */; };
 		8EF0C8311B5B2835005E082B /* SIgnPadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EF0C8301B5B2835005E082B /* SIgnPadViewController.m */; };
@@ -74,6 +75,8 @@
 		8E7911AD1B4896E4005F5D6E /* syncViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = syncViewController.m; sourceTree = "<group>"; };
 		8E7911B21B48DEE6005F5D6E /* monthTabsTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = monthTabsTableView.h; sourceTree = "<group>"; };
 		8E7911B31B48DEE6005F5D6E /* monthTabsTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = monthTabsTableView.m; sourceTree = "<group>"; };
+		8EAFE5D21B6AA275000F2A65 /* checkBoxImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = checkBoxImageView.h; sourceTree = "<group>"; };
+		8EAFE5D31B6AA275000F2A65 /* checkBoxImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = checkBoxImageView.m; sourceTree = "<group>"; };
 		8EB915721B6411E0009151F7 /* TimeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeViewController.h; sourceTree = "<group>"; };
 		8EB915731B6411E0009151F7 /* TimeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeViewController.m; sourceTree = "<group>"; };
 		8EDE75931B669BB900D817F1 /* preventiveMeasureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = preventiveMeasureViewController.h; sourceTree = "<group>"; };
@@ -149,6 +152,8 @@
 				8E7911131B3E18D1005F5D6E /* MainMenu.plist */,
 				8E79116C1B44BAA0005F5D6E /* holidays.plist */,
 				8E79115F1B40A4F0005F5D6E /* Main.storyboard */,
+				8EAFE5D21B6AA275000F2A65 /* checkBoxImageView.h */,
+				8EAFE5D31B6AA275000F2A65 /* checkBoxImageView.m */,
 				8E7911AC1B4896E4005F5D6E /* syncViewController.h */,
 				8E7911AD1B4896E4005F5D6E /* syncViewController.m */,
 				8E7910F01B3E135D005F5D6E /* Images.xcassets */,
@@ -368,6 +373,7 @@
 				8E7911B41B48DEE6005F5D6E /* monthTabsTableView.m in Sources */,
 				8E7911AB1B4824B9005F5D6E /* RDVExampleDayCell.m in Sources */,
 				8EB915741B6411E0009151F7 /* TimeViewController.m in Sources */,
+				8EAFE5D41B6AA275000F2A65 /* checkBoxImageView.m in Sources */,
 				8E7911121B3E168D005F5D6E /* MainMenuTableViewController.m in Sources */,
 				8E7911AE1B4896E4005F5D6E /* syncViewController.m in Sources */,
 				8EDE75951B669BB900D817F1 /* preventiveMeasureViewController.m in Sources */,

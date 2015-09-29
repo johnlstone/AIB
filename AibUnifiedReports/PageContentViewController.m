@@ -5,7 +5,6 @@
 //  Created by John Stone on 6/30/15.
 //  Copyright (c) 2015 John Stone. All rights reserved.
 //
-
 #import "PageContentViewController.h"
 #import "RDVExampleViewController.h"
 #import "PPSSignatureView.h"
@@ -14,6 +13,7 @@
 #import "TimeViewController.h"
 
 @interface PageContentViewController ()
+@property NSArray *checkControlArray;
 
 @end
 
@@ -43,10 +43,26 @@
     
     return timeString;
 }
+- (void)viewWillDisappear:(BOOL)animated{
+    
+    
 
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+   
+  // Can this be delted?
+    self.checkControlArray  = [NSArray arrayWithObjects:
+                               @"employeeHygieneFirstCheck",
+                               @"employeeHygieneSecondCheck",
+                               @"materialHandlingFirstCheck",
+                               @"materialHandlingSecondCheck",
+                               @"polyContactSurfacesFirstCheck",
+                               @"polyContactSurfacesSecondCheck",
+                               @"overheadAndTrashFirstCheck",
+                               @"overheadAndTrashSecondCheck",
+                               nil];
     
     
     NSArray  *dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -85,17 +101,38 @@
         [[self secondCheckTime]    setHidden:YES];
         [[self correctiveAction]   setHidden:YES];
         [[self preventiveMeasure]  setHidden:YES];
+        [[self ehFirstCheck]       setHidden:YES];
+        [[self ehSecondCheck]      setHidden:YES];
+        [[self mhFirstCheck]       setHidden:YES];
+        [[self mhSecondCheck]      setHidden:YES];
+        [[self pcFirstCheck]       setHidden:YES];
+        [[self pcSecondCheck]      setHidden:YES];
+        [[self ohFirstCheck]       setHidden:YES];
+        [[self ohSecondCheck]      setHidden:YES];
+        [[self ehFirstLabel]       setHidden:YES];
+        [[self ehSecondLabel]      setHidden:YES];
+        [[self mhFirstLabel]       setHidden:YES];
+        [[self mhSecondLabel]      setHidden:YES];
+        [[self pcFirstLabel]       setHidden:YES];
+        [[self pcSecondLabel]      setHidden:YES];
+        [[self ohFirstLabel]       setHidden:YES];
+        [[self ohSecondLabel]     setHidden:YES];
         
         [[self doneButton]         setHidden:YES];
-    
+        
+        
     }else{
         
         [[self doneButton] setTitle: @"SIGN" forState:UIControlStateNormal];
-    
+        
     }
     
 }
-
+- (NSInteger *) getSwitchState {
+     
+    
+    return 0;
+}
 #pragma mark - Navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
@@ -148,22 +185,22 @@
             }else{
                 return YES;
             }
-            
         }
-        
-        NSLog(@"%@",sender);
     }
-    
-    
     return YES;
 }
 
 - (IBAction)showPreventiveMeasure:(id)sender {
-   // [preventiveMeasure becomeFirstResponder];
+  
+    if([sender isKindOfClass:[UISwitch class]]){
+        NSLog(@"%@",sender);
+        if ([sender isOn]){
+           // return NO;
+        }else{
+            [self performSegueWithIdentifier:@"showEditBox" sender:sender];
+        }
+    }
+    
 }
 
-- (IBAction)show2:(id)sender {
-    
-    
-}
 @end

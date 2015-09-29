@@ -9,6 +9,23 @@
 #import <UIKit/UIKit.h>
 
 @interface PageContentViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UILabel *ehFirstLabel;
+@property (weak, nonatomic) IBOutlet UILabel *ehSecondLabel;
+@property (weak, nonatomic) IBOutlet UILabel *mhFirstLabel;
+@property (weak, nonatomic) IBOutlet UILabel *mhSecondLabel;
+@property (weak, nonatomic) IBOutlet UILabel *pcFirstLabel;
+@property (weak, nonatomic) IBOutlet UILabel *pcSecondLabel;
+@property (weak, nonatomic) IBOutlet UILabel *ohFirstLabel;
+@property (weak, nonatomic) IBOutlet UILabel *ohSecondLabel;
+
+@property (weak, nonatomic) IBOutlet UISwitch *ehFirstCheck;
+@property (weak, nonatomic) IBOutlet UISwitch *ehSecondCheck;
+@property (weak, nonatomic) IBOutlet UISwitch *mhFirstCheck;
+@property (weak, nonatomic) IBOutlet UISwitch *mhSecondCheck;
+@property (weak, nonatomic) IBOutlet UISwitch *pcFirstCheck;
+@property (weak, nonatomic) IBOutlet UISwitch *pcSecondCheck;
+@property (weak, nonatomic) IBOutlet UISwitch *ohFirstCheck;
+@property (weak, nonatomic) IBOutlet UISwitch *ohSecondCheck;
 
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
 @property (weak, nonatomic) IBOutlet UILabel *reportHeading;

@@ -67,7 +67,7 @@
 }
 
 - (UIImage *) getReportImageForDate:(NSString *)date {
-    
+    // This currently just check file system on device. needs to check for cloudkit too.
     NSArray *dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *docsDir = [dirPaths objectAtIndex:0];
     NSString *filename = [NSString stringWithFormat:@"%@-%@",reportName,[date substringToIndex:10]];
@@ -162,17 +162,97 @@
     NSString *secondCheck = [NSString stringWithFormat:@"Second Check: %@", pageController.secondCheckTime.text];
     [firstCheck drawInRect:CGRectMake(1000, 100, 400, 400)  withAttributes:dictionary];
     [secondCheck drawInRect:CGRectMake(975, 130, 400, 400)  withAttributes:dictionary];
+
+    // draw Check Boxes and Labels;
+    //draw EMPLOYEE HYGIENE FIRST CHECK
+    NSMutableDictionary *checkMarkAttr = [[NSMutableDictionary alloc] initWithObjectsAndKeys: [UIFont systemFontOfSize:48], NSFontAttributeName,nil];
+    [[UIColor blackColor]setStroke];
+    [[UIColor blackColor]setFill];
+    //
+    NSString *checkMark = @"X";
+    NSString *okColumnLabel = @"OK";
+    NSString *defColummLabel = @"Defciency";
+    [okColumnLabel drawAtPoint:CGPointMake(995, 190) withAttributes:dictionary];
+    [defColummLabel drawAtPoint:CGPointMake(1070, 190) withAttributes:dictionary];
+// eh check
+    NSString *CheckLabel = [NSString stringWithFormat:@"First Check: %@", @""];
+    [CheckLabel drawInRect:CGRectMake(800, 275, 400, 400)  withAttributes:dictionary];
+    if ( pageController.ehFirstCheck.isOn){
+        [checkMark drawAtPoint:CGPointMake(1000, 255) withAttributes:checkMarkAttr];
+    }else{
+        [checkMark drawAtPoint:CGPointMake(1100, 255) withAttributes:checkMarkAttr];
+    }
+    
+    CheckLabel = [NSString stringWithFormat:@"Second Check: %@", @""];
+    [CheckLabel drawInRect:CGRectMake(780, 375, 400, 400)  withAttributes:dictionary];
+    if ( pageController.ehSecondCheck.isOn){
+        [checkMark drawAtPoint:CGPointMake(1000, 355) withAttributes:checkMarkAttr];
+    }else{
+        [checkMark drawAtPoint:CGPointMake(1100, 355) withAttributes:checkMarkAttr];
+    }
+// MH Check
+    CheckLabel = [NSString stringWithFormat:@"First Check: %@", @""];
+    [CheckLabel drawInRect:CGRectMake(800, 440, 400, 400)  withAttributes:dictionary];
+    if ( pageController.mhFirstCheck.isOn){
+        [checkMark drawAtPoint:CGPointMake(1000, 420) withAttributes:checkMarkAttr];
+    }else{
+        [checkMark drawAtPoint:CGPointMake(1100, 420) withAttributes:checkMarkAttr];
+        
+    }
+    CheckLabel = [NSString stringWithFormat:@"Second Check: %@", @""];
+    [CheckLabel drawInRect:CGRectMake(780, 540, 400, 400)  withAttributes:dictionary];
+    if ( pageController.mhSecondCheck.isOn){
+        
+        [checkMark drawAtPoint:CGPointMake(1000, 520) withAttributes:checkMarkAttr];
+    }else{
+        [checkMark drawAtPoint:CGPointMake(1100, 520) withAttributes:checkMarkAttr];
+    }
+//PC CHECK
+    CheckLabel = [NSString stringWithFormat:@"First Check: %@", @""];
+    [CheckLabel drawInRect:CGRectMake(800, 605, 400, 400)  withAttributes:dictionary];
+    if ( pageController.pcFirstCheck.isOn){
+        [checkMark drawAtPoint:CGPointMake(1000, 585) withAttributes:checkMarkAttr];
+    }else{
+        [checkMark drawAtPoint:CGPointMake(1100, 585) withAttributes:checkMarkAttr];
+        
+    }
+    CheckLabel = [NSString stringWithFormat:@"Second Check: %@", @""];
+    [CheckLabel drawInRect:CGRectMake(780, 700, 400, 400)  withAttributes:dictionary];
+    
+    if ( pageController.pcSecondCheck.isOn){
+        
+        [checkMark drawAtPoint:CGPointMake(1000, 680) withAttributes:checkMarkAttr];
+    }else{
+        [checkMark drawAtPoint:CGPointMake(1100, 680) withAttributes:checkMarkAttr];}
+//OH Check
+    CheckLabel = [NSString stringWithFormat:@"First Check: %@", @""];
+    [CheckLabel drawInRect:CGRectMake(800, 770, 400, 400)  withAttributes:dictionary];
+    
+    if ( pageController.ohFirstCheck.isOn){
+        [checkMark drawAtPoint:CGPointMake(1000, 750) withAttributes:checkMarkAttr];
+    }else{
+        [checkMark drawAtPoint:CGPointMake(1100, 750) withAttributes:checkMarkAttr];
+    }
+    CheckLabel = [NSString stringWithFormat:@"Second Check: %@", @""];
+    [CheckLabel drawInRect:CGRectMake(780, 860, 400, 400)  withAttributes:dictionary];
+    
+    if ( pageController.ohSecondCheck.isOn){
+        
+        [checkMark drawAtPoint:CGPointMake(1000, 840) withAttributes:checkMarkAttr];
+    }else{
+        [checkMark drawAtPoint:CGPointMake(1100, 840) withAttributes:checkMarkAttr];
+    }
     
     // draw corrective action text box
     NSString * correctiveAction = pageController.correctiveAction.text;
     [correctiveAction drawInRect:CGRectMake(120, 950, 950, 300) withAttributes:dictionary];
     NSString * preventiveMeasure = pageController.preventiveMeasure.text;
-    [preventiveMeasure drawInRect:CGRectMake(120, 1220, 950, 300) withAttributes:dictionary];
+    [preventiveMeasure drawInRect:CGRectMake(120, 1190, 950, 300) withAttributes:dictionary];
     
     
     // Draw signature in bottom right
     [signatureImage drawInRect:CGRectMake(750,1320, 350, 150) blendMode:kCGBlendModePlusDarker alpha:.99f ];
-    
+
     // gererate report image
     UIImage * image = UIGraphicsGetImageFromCurrentImageContext();
     
@@ -183,6 +263,9 @@
     [self writeReportWithFilename:image FileName:fileName];
     [self postReportToCloud:fileName];
     
+}
+-(NSInteger *) getStateOFSwitchs {
+    return 0;
 }
 
 - (void) writeReportWithFilename:(UIImage *)image FileName:(NSString *) name{
@@ -228,28 +311,32 @@
         }
     }];
 }
-
-- (void) viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    // _workDates = @[@"06/01/2015", @"06/02/2015", @"06/03/2015", @"06/04/2015"];
-    _pageImages = @[@"operations.png",@"operations.png",@"operations.png",@"operations.png"];
-    NSMutableArray *simpleDates = [self simplifyWorkDates];
+- (NSString *) getTodayDate {
     NSDate *today = [NSDate date];
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
     [dateFormat setDateFormat:@"yyyy-MM-dd"];
     NSLocale *usLocale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US"];
-    // [dateFormat setTimeZone:<#(NSTimeZone *)#>]
     [dateFormat setLocale:usLocale];
     NSString *dateString = [dateFormat stringFromDate:today];
     NSString * simpleSentDate = [[NSString stringWithFormat:@"%@",dateString] substringToIndex:10];
-    //  NSString * simpleCurrentDate = [[NSString stringWithFormat:@"%@",lastDate] substringToIndex:10];
     
+    
+    return simpleSentDate;
+    
+}
+- (void) viewDidLoad {
+    [super viewDidLoad];
+    //static list of pdfs backgrounds
+    _pageImages = @[@"operatios.png",@"operations.png",@"operations.png",@"operations.png"];
+    
+    // get todays date
+    NSMutableArray *simpleDates = [self simplifyWorkDates];
+    NSString *simpleSentDate = [self getTodayDate];
+    
+    // What to do about weekends
     NSUInteger indexOfTheObject = [simpleDates indexOfObject: simpleSentDate];
     if (indexOfTheObject == NSNotFound){
         indexOfTheObject = 129;
-        
-        
     }
     
     // Create page view controller
