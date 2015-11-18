@@ -108,7 +108,21 @@
 - (void) saveReport:(NSArray *)passedArray{
     
     // passed array format is @[signatureImage,date,nil];
-    // UIImage *signImage = [passedArray objectAtIndex:0];
+     UIImage *signImage = [passedArray objectAtIndex:0];
+    NSString *signDate =[NSString stringWithFormat:@"%@", [passedArray objectAtIndex:1]];
+    
+    NSArray  *dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *docsDir = [dirPaths objectAtIndex:0];
+   NSString *filename = [NSString stringWithFormat:@"signature-%@-%@",self.reportName  ,[signDate substringToIndex:10]];
+    NSString *directoryPath = [[NSString alloc]initWithString:[docsDir stringByAppendingPathComponent:filename]];
+    NSData *data = UIImagePNGRepresentation(signImage);
+    
+    [data writeToFile:directoryPath atomically:YES];
+    
+
+    
+    
+
     
     // Remove Time Portion of NSDate for simple index search. returns "yyyy-MM-dd".
     NSDate  *sentDate  = [passedArray objectAtIndex:1];
@@ -311,6 +325,7 @@
         }
     }];
 }
+
 - (NSString *) getTodayDate {
     NSDate *today = [NSDate date];
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
@@ -324,6 +339,7 @@
     return simpleSentDate;
     
 }
+
 - (void) viewDidLoad {
     [super viewDidLoad];
     //static list of pdfs backgrounds
@@ -407,7 +423,8 @@
     if (reportImage){
         
         pageContentViewController.reportAvail = YES;
-        pageContentViewController.imageFile = reportImage;
+     //   pageContentViewController.imageFile = reportImage;
+        pageContentViewController.imageFile = [UIImage imageNamed:self.pageImages[1]];
         
     }else{
         

@@ -38,7 +38,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *firstCheckTime;
 @property (weak, nonatomic) IBOutlet UILabel *secondCheckTime;
 @property (weak, nonatomic) IBOutlet UIButton *doneButton;
+@property (weak, nonatomic) IBOutlet UIImageView *signaturePad;
 @property (weak, nonatomic) IBOutlet UISwitch *employ;
+//@property (weak, nonatomic) IBOutlet UIButton *signaturePad;
 @property (weak, nonatomic) IBOutlet UITextView *correctiveAction;
 @property (weak, nonatomic) IBOutlet UITextView *preventiveMeasure;
 - (IBAction)showPreventiveMeasure:(id)sender;

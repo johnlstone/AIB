@@ -26,9 +26,13 @@
         if (!error) {
             workDates = [[results objectAtIndex:0] objectForKey:@"workDates"];
             NSLog(@"%@", workDates);
+            NSLog(@"%@",@"retriveWorkDates completionHandler returns with !error");
+            
             
         } else {
             NSLog(@"%@", error);
+            NSLog(@"%@",@"retriveWorkDates completionHandler returns with  errorS");
+            
         }
                
 [self performSegueWithIdentifier:@"main" sender:self];

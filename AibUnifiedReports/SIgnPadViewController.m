@@ -22,6 +22,8 @@
     
     if ([[self signPad] hasSignature]){
         
+        
+        
         NSArray * passArray = [NSArray arrayWithObjects: [[self signPad]signatureImage], [self signDate], nil];
         [self.presentingViewController performSelector:@selector(saveReport:) withObject:passArray ];
     

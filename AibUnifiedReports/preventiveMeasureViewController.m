@@ -37,9 +37,13 @@
     
     NSString *directoryPath = [[NSString alloc]initWithString:[docsDir stringByAppendingPathComponent:filename]];
     NSArray * retrivedData = [NSMutableArray arrayWithContentsOfFile:directoryPath];
+   
+    if (retrivedData.count>1) {
+        
+    
     self.correctiveAction.text = [retrivedData objectAtIndex:0];
     self.preventiveMeasure.text = [ retrivedData objectAtIndex:1];
-    
+    }
     
     
     //NSData *data = UIImagePNGRepresentation(image);
