@@ -129,9 +129,9 @@
     //    [[self shiftHeading]       setHidden:YES];
    //     [[self shiftLabel]         setHidden:YES];
    //     [[self firstCheckHeading]  setHidden:YES];
-//[[self firstCheckTime]     setHidden:YES];
+      //    [[self firstCheckTime]     setHidden:YES];
     //    [[self secondCheckHeading] setHidden:YES];
-    //    [[self secondCheckTime]    setHidden:YES];
+        //  [[self secondCheckTime]    setHidden:YES];
  //       [[self correctiveAction]   setHidden:YES];
  //       [[self preventiveMeasure]  setHidden:YES];
 //        [[self ehFirstCheck]       setHidden:YES];

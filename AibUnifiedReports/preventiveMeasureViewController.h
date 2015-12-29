@@ -11,8 +11,9 @@
 @interface preventiveMeasureViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UIImageView *caViewBox;
 @property (weak, nonatomic) IBOutlet UIImageView *pmViewBox;
-@property (weak, nonatomic) IBOutlet UITextView *preventiveMeasure;
 @property (weak, nonatomic) IBOutlet UITextView *correctiveAction;
+@property (weak, nonatomic) IBOutlet UITextView *preventiveMeasure;
+
 @property (weak, nonatomic) NSString * reportName;
 
 @property (weak, nonatomic) NSString * dateText;

@@ -14,6 +14,7 @@
 
 @implementation preventiveMeasureViewController
 @synthesize preventiveMeasure;
+@synthesize correctiveAction;
 
 
 
@@ -55,7 +56,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [preventiveMeasure becomeFirstResponder];
+    [correctiveAction becomeFirstResponder];
     
 
 }

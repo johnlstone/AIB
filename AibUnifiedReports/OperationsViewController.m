@@ -108,21 +108,16 @@
 - (void) saveReport:(NSArray *)passedArray{
     
     // passed array format is @[signatureImage,date,nil];
-     UIImage *signImage = [passedArray objectAtIndex:0];
+    UIImage *signImage = [passedArray objectAtIndex:0];
     NSString *signDate =[NSString stringWithFormat:@"%@", [passedArray objectAtIndex:1]];
     
     NSArray  *dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *docsDir = [dirPaths objectAtIndex:0];
-   NSString *filename = [NSString stringWithFormat:@"signature-%@-%@",self.reportName  ,[signDate substringToIndex:10]];
+    NSString *filename = [NSString stringWithFormat:@"signature-%@-%@",self.reportName  ,[signDate substringToIndex:10]];
     NSString *directoryPath = [[NSString alloc]initWithString:[docsDir stringByAppendingPathComponent:filename]];
     NSData *data = UIImagePNGRepresentation(signImage);
     
     [data writeToFile:directoryPath atomically:YES];
-    
-
-    
-    
-
     
     // Remove Time Portion of NSDate for simple index search. returns "yyyy-MM-dd".
     NSDate  *sentDate  = [passedArray objectAtIndex:1];
@@ -296,6 +291,7 @@
 
 - (void) postReportToCloud:(NSString *) file{
     
+     PageContentViewController * pageController = [[[[self childViewControllers] firstObject ]childViewControllers]firstObject];
     
     NSArray *dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     
@@ -308,11 +304,28 @@
     CKContainer *defaultContainer = [CKContainer containerWithIdentifier:@"iCloud.com.pbok.AibUnifiedReports"];
    
     CKDatabase *publicDatabase = [defaultContainer publicCloudDatabase];
+    //check for existing file
+  //  NSPredicate *fileNamePredicate = [NSPredicate predicateWithFormat: @"name BEGINSWITH 'm'"];
+    CKRecordID *reportImageId = [[CKRecordID alloc] initWithRecordName:@"ReportImages"];
+    
+    [publicDatabase fetchRecordWithID:reportImageId completionHandler:^(CKRecord *fetchedPlace, NSError *error) {
+        // handle errors here
+    }];
     
     CKAsset *reportI = [[CKAsset alloc ] initWithFileURL:url];
     
     CKRecord *postRecord = [[CKRecord alloc] initWithRecordType:@"ReportImages" ];
-   postRecord[@"reportName"] = file;
+    postRecord[@"reportName"] = file;
+    postRecord[@"reportDate"]=[[NSString stringWithFormat:@"%@", pageController.dateText] substringToIndex:10];
+    postRecord[@"correctiveAction"] = pageController.correctiveAction.text;
+    postRecord[@"preventiveMeasure"] = pageController.preventiveMeasure.text;
+    postRecord[@"firstCheck"] = pageController.firstCheckTime.text;
+    postRecord[@"secondCheck"] = pageController.secondCheckTime.text;
+    
+    
+    
+    postRecord[@"discrepancy"]=@"discrepancy test Field";
+    
     //postRecord[@"reportImage"] = reportI;
     [postRecord setObject:reportI forKey:@"reportImage"];
     
